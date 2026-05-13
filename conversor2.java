@@ -4,25 +4,23 @@ public class conversor2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Digite um numero hexadecimal: ");
-        String hexadecimal = sc.next().toUpperCase();
+        int[] numHexa = new int[4];
+        int soma = 0;
 
-        int decimal = 0;
+        // Importante lembrar que no sistema decimal, vai do 0 ao 9
+        // 10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F
 
-        for (int i = 0; i < hexadecimal.length(); i++) {
-            char digito = hexadecimal.charAt(i);
-            int valor;
-
-            if (digito >= '0' && digito <= '9') {
-                valor = digito - '0';
-            } else {
-                valor = digito - 'A' + 10;
-            }
-
-            decimal = decimal * 16 + valor;
+        for (int i = 0; i < 4; i++) {
+        System.out.println("Insira o primeiro valor conforme a relacao dos comentarios");
+        numHexa[i] += sc.nextInt();
         }
 
-        System.out.println("Decimal: " + decimal);
+        soma = (numHexa[0] * 16 * 16 * 16)
+                + (numHexa[1] * 16 * 16)
+                + (numHexa[2] * 16)
+                + numHexa[3];
+
+        System.out.println("Sua soma é: " + soma);
 
         sc.close();
     }

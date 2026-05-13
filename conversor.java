@@ -4,31 +4,42 @@ public class conversor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Digite um numero decimal: ");
-        int decimal = sc.nextInt();
+        int numero = 0;
+        int resto = 0;
+        String hexaDecimal = "";
 
-        String hexadecimal = "";
-        int numero = decimal;
+        // Declaramos as variaveis inicializando-as
 
-        if (numero == 0) {
-            hexadecimal = "0";
-        }
+        System.out.println("Digite um numero decimal: ");
+        numero = sc.nextInt();
+
+        // O leitor recebe o numero
+        // Enquanto o numero for maior que zero, ele vai compilar
+        // Caso esse numero seja negativo, ele para a execucao
 
         while (numero > 0) {
-            int resto = numero % 16;
-            char digito;
+            resto = numero % 16;
 
-            if (resto < 10) {
-                digito = (char) ('0' + resto);
+            if (resto == 10) {
+                hexaDecimal = "A" + hexaDecimal;
+            } else if (resto == 11) {
+                hexaDecimal = "B" + hexaDecimal;
+            } else if (resto == 12) {
+                hexaDecimal = "C" + hexaDecimal;
+            } else if (resto == 13) {
+                hexaDecimal = "D" + hexaDecimal;
+            } else if (resto == 14) {
+                hexaDecimal = "E" + hexaDecimal;
+            } else if (resto == 15) {
+                hexaDecimal = "F" + hexaDecimal;
             } else {
-                digito = (char) ('A' + (resto - 10));
+                hexaDecimal = resto + hexaDecimal;
             }
 
-            hexadecimal = digito + hexadecimal;
             numero = numero / 16;
         }
 
-        System.out.println("Hexadecimal: " + hexadecimal);
+        System.out.println("Hexadecimal: " + hexaDecimal);
 
         sc.close();
     }
